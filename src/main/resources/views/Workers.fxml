@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="delegacy.views.WorkerListController">
+  <top>
+	<fx:include fx:id="Menu" source="Menu.fxml" />
+  </top>
+  <center>
+    <TableView fx:id="workersTable" prefHeight="200.0" prefWidth="200.0">
+      <columns>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="160.0" text="Vezetéknév" fx:id="firstName" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="240.0" text="Keresztnév" fx:id="lastName" />
+      </columns>
+    </TableView>
+  </center>
+</BorderPane>

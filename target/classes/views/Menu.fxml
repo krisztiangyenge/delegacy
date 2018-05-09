@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+
+<MenuBar prefHeight="32.0" prefWidth="266.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="delegacy.views.MenuController">
+  <menus>
+    <Menu mnemonicParsing="false" text="Autók">
+      <items>
+        <MenuItem mnemonicParsing="false" onAction="#openCars" text="Autók" />
+        <MenuItem mnemonicParsing="false" onAction="#newCar" text="Új autó" />
+      </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Dolgozók">
+      <items>
+        <MenuItem mnemonicParsing="false" onAction="#openWorkers" text="Dolgozók" />
+        <MenuItem mnemonicParsing="false" onAction="#newWorker" text="Új dolgozó" />
+      </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Kiküldetések">
+      <items>
+        <MenuItem mnemonicParsing="false" onAction="#openDelegacys" text="Kiküldetések" />
+        <MenuItem mnemonicParsing="false" onAction="#newDelegacy" text="Új kiküldetés" />
+      </items>
+    </Menu>
+  </menus>
+</MenuBar>
+
