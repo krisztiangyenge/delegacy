@@ -1,14 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>hu.unideb.inf</groupId>
-  <artifactId>delegacy</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>delegacy</name>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>hu.unideb.inf</groupId>
+    <artifactId>storage</artifactId>
+    <version>1.0.0</version>
 
-  <properties>
-    	<mainClass>delegacy.App</mainClass>
+    <properties>
+        <mainClass>delegacy.App</mainClass>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,8 +20,28 @@
 		<mockito.version>1.10.19</mockito.version>
 		<junit.version>4.12</junit.version>
 		<cobertura.version>2.7</cobertura.version>
-  </properties>
-<licenses>
+    </properties>
+
+    <developers>
+        <developer>
+            <id>krisztiangyenge</id>
+            <name>Gyenge Krisztián</name>
+            <email>krisztian.gyenge@hotmail.com</email>
+        </developer>
+    </developers>
+	<organization>
+		<name>Debreceni Egyetem - Informatikai Kar</name>
+	</organization>
+	<scm>
+		<url>https://github.com/krisztiangyenge/delegacy</url>
+		<connection>scm:git:git://github.com/krisztiangyenge/delegacy.git</connection>
+		<developerConnection>scm:git:git://github.com/krisztiangyenge/delegacy.git</developerConnection>
+	</scm>
+	<issueManagement>
+		<url>https://github.com/krisztiangyenge/delegacy/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+	<licenses>
 		<license>
 			<name>GNU General Public License V3.0</name>
 			<url>http://www.gnu.org/licences/gpl.html</url>
@@ -263,4 +282,6 @@
 	        </plugin>
         </plugins>
     </reporting>
+    <name>Gyenge Krisztián - kiküldetés rendszer</name>
+    <description>Kiküldetés beadandó</description>
 </project>
