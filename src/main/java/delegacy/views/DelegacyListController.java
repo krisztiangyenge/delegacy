@@ -2,10 +2,7 @@ package delegacy.views;
 
 import java.util.List;
 
-import delegacy.model.Car;
 import delegacy.model.Delegacy;
-import delegacy.model.Worker;
-import delegacy.service.impl.CarServiceImpl;
 import delegacy.service.impl.DelegacyServiceImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,7 +21,7 @@ public class DelegacyListController {
 	private TableView<Delegacy> delegacysTable;
 	
 	@FXML
-	private TableColumn<Delegacy, String> car;
+	private TableColumn<Delegacy, String> cars;
 	
 	@FXML
 	private TableColumn<Delegacy, String> worker;
@@ -35,6 +32,8 @@ public class DelegacyListController {
 	@FXML
 	private TableColumn<Delegacy, String> endAddress;
 	
+	@FXML
+	private TableColumn<Delegacy, String> distance;
 	
 	@FXML
 	private void initialize(){
@@ -45,10 +44,11 @@ public class DelegacyListController {
 		
 			delegacysTable.setItems(delegacys);
 			
-			car.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("carBrandName"));
-			worker.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("workerFullName"));
+			cars.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("car"));
+			worker.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("worker"));
 			startAddress.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("startAddress"));
 			endAddress.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("endAddress"));
+			distance.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("distance"));
 		}
 	}
 }

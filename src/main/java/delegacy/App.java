@@ -63,7 +63,7 @@ public class App extends Application{
 		});
 		
 		try{
-			changeView("Login");
+			changeView("Delegacys");
 		}catch(Exception e){
 			logger.error(e.getMessage());
 		}

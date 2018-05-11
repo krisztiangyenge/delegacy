@@ -78,9 +78,6 @@ public class Initialize {
 		delegacy.setStartAddress("Debrecen");
 		delegacy.setEndAddress("Sopron");
 		delegacy.setDistance(350);
-		delegacy.setCarBrandName(cl.get(0).getBrand(), cl.get(0).getCarName());
-		delegacy.setworkerFullName(wl.get(0).getFirstName(), wl.get(0).getLastName());
-		
 		DelegacyServiceImpl ds = new DelegacyServiceImpl();
 		ds.save(delegacy);
 

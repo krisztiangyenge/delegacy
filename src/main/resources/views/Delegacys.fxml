@@ -12,10 +12,11 @@
   <center>
     <TableView fx:id="delegacysTable" prefHeight="200.0" prefWidth="200.0">
       <columns>
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="160.0" text="Autó" fx:id="car" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="160.0" text="Autó" fx:id="cars" />
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="240.0" text="Dolgozó" fx:id="worker" />
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="184.0" text="Start cím" fx:id="startAddress" />  
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="184.0" text="Cél cím" fx:id="endAddress" />  
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="184.0" text="Cél cím" fx:id="endAddress" /> 
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="184.0" text="Megtett táv" fx:id="distance" />   
       </columns>
     </TableView>
   </center>

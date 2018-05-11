@@ -66,8 +66,8 @@ public class Delegacy {
 		return worker;
 	}
 
-	public void setWorkerId(Worker workerId) {
-		this.worker = workerId;
+	public void setWorkerId(Worker worker) {
+		this.worker = worker;
 	}
 
 	public Car getCarId() {
