@@ -13,7 +13,7 @@ import delegacy.datasource.ConnectionHandler;
 import delegacy.model.Worker;
 
 public class WorkerDaoImpl implements WorkerDao {
-	private EntityManagerFactory emf = ConnectionHandler.getEntityManagerFactory();;
+	private EntityManagerFactory emf = ConnectionHandler.getEntityManagerFactory();
 	
 	private Logger logger = LoggerFactory.getLogger(WorkerDaoImpl.class);
 

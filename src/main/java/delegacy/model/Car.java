@@ -1,18 +1,19 @@
 package delegacy.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
+
 
 @Entity
 @XmlRootElement(name="car")
 public class Car {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="car_id")
 	private int carId;
 	
 	public int getCarId() {
@@ -32,7 +33,19 @@ public class Car {
 	private double consumption;
 	
 	private Boolean available;
+	
+	@ManyToOne
+	@JoinColumn(referencedColumnName="workerId")
+	private Worker owner;
 
+	public void setOwner(Worker owner) {
+		this.owner = owner;
+	}
+	
+	public Worker getOwner() {
+		return owner;
+	}
+	
 	public String getPlateNumber() {
 		return plateNumber;
 	}
@@ -71,6 +84,11 @@ public class Car {
 	
 	public void setConsumption(double consumption) {
 		this.consumption = consumption;
+	}
+	
+	@Override
+	public String toString() {
+		return this.brand + " " + this.carName + " (" + this.plateNumber + ")";
 	}
 	
 }

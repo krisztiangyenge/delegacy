@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 @Entity
@@ -15,11 +17,19 @@ public class Delegacy {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int delegacyId;
 	
-	private int workerId;
+	@ManyToOne
+	@JoinColumn(referencedColumnName="workerId")
+	private Worker worker;
 	
-	private String carId;
+	@ManyToOne
+	@JoinColumn(referencedColumnName="carId")
+	private Car car;
 	
 	private Date delegacyDate;
+	
+	private String carBrandName;
+	
+	private String workerFullName;
 	
 	private String startAddress;
 	
@@ -31,25 +41,41 @@ public class Delegacy {
 	public int getDelegacyId() {
 		return delegacyId;
 	}
+	
+	public String getCarBrandName() {
+		return carBrandName;
+	}
+	
+	public void setCarBrandName(String brand, String carName) {
+		this.carBrandName = brand +" "+ carName;
+	}
+	
+	public String getWorkerFullName() {
+		return workerFullName;
+	}
+	
+	public void setworkerFullName(String firstName, String lastName) {
+		this.workerFullName = firstName +" "+ lastName;
+	}
 
 	public void setDelegacyId(int delegacyId) {
 		this.delegacyId = delegacyId;
 	}
 
-	public int getWorkerId() {
-		return workerId;
+	public Worker getWorkerId() {
+		return worker;
 	}
 
-	public void setWorkerId(int workerId) {
-		this.workerId = workerId;
+	public void setWorkerId(Worker workerId) {
+		this.worker = workerId;
 	}
 
-	public String getCarId() {
-		return carId;
+	public Car getCarId() {
+		return car;
 	}
 
-	public void setCarId(String carId) {
-		this.carId = carId;
+	public void setCarId(Car carId) {
+		this.car = carId;
 	}
 
 	public Date getDelegacyDate() {
@@ -84,5 +110,8 @@ public class Delegacy {
 		this.distance = distance;
 	}
 	
+	public String toString() {
+		return worker.getFirstName() + " " + worker.getLastName() + " " + car.getBrand() + " " + car.getCarName();
+	}
 	
 }

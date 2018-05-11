@@ -4,9 +4,9 @@
 	version="2.0">
 	<persistence-unit name="carDelegacy">
 		<class>delegacy.model.Admin</class>
+		<class>delegacy.model.Worker</class>
 		<class>delegacy.model.Car</class>
 		<class>delegacy.model.Delegacy</class>
-		<class>delegacy.model.Worker</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />

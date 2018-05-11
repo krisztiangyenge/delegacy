@@ -26,6 +26,7 @@ public class MenuController {
 	
 	@FXML
 	private void openDelegacys(){
+		App.getInstance().changeView("Delegacys");
 	}
 	
 	@FXML

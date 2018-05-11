@@ -12,7 +12,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Worker {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="worker_id")
 	private int workerId;
 	
 	private String lastName;
@@ -44,4 +43,8 @@ public class Worker {
 		this.firstName = firstName;
 	}
 
+	@Override
+	public String toString() {
+		return this.getFirstName()+" "+this.getLastName();
+	}
 }

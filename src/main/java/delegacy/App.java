@@ -44,6 +44,7 @@ public class App extends Application{
 		Initialize.initializeCar();
 		Initialize.initializeAdmin();
 		Initialize.initializeWorker();
+		Initialize.InitializeDelegacy();
 		logger.info("Adatok inicializálva");
 		launch(args);
 	}

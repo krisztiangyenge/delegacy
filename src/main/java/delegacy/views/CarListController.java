@@ -32,6 +32,8 @@ public class CarListController {
 	@FXML
 	private TableColumn<Car, Double> carConsumption;
 	
+	@FXML
+	private TableColumn<Car, String> carOwner;
 	
 	@FXML
 	private void initialize(){
@@ -46,6 +48,7 @@ public class CarListController {
 			brand.setCellValueFactory(new PropertyValueFactory<Car, String>("brand"));
 			carName.setCellValueFactory(new PropertyValueFactory<Car, String>("carName"));
 			carConsumption.setCellValueFactory(new PropertyValueFactory<Car, Double>("consumption"));
+			carOwner.setCellValueFactory(new PropertyValueFactory<Car, String>("owner"));
 		}
 	}
 }

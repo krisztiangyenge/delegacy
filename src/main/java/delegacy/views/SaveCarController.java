@@ -5,15 +5,23 @@ import org.slf4j.LoggerFactory;
 
 import delegacy.App;
 import delegacy.model.Car;
+import delegacy.model.Worker;
 import delegacy.service.impl.CarServiceImpl;
+import delegacy.service.impl.WorkerServiceImpl;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class SaveCarController {
+	private ObservableList<Worker> owners = FXCollections.observableArrayList();
+
 	private Logger logger = LoggerFactory.getLogger(SaveCarController.class);
 	
 	private CarServiceImpl carService = new CarServiceImpl();
+	private WorkerServiceImpl workerService = new WorkerServiceImpl();
 	
 	private Car car;
 	
@@ -33,9 +41,15 @@ public class SaveCarController {
 	private Label errorLabel;
 	
 	@FXML
+	private ComboBox<Worker> ownerSelect;
+	
+	@FXML
 	private void initialize(){
 		errorLabel.setText("");
+		owners.addAll(workerService.getAllWorker());
+		ownerSelect.setItems(owners);
 	}
+	
 	
 	@FXML
 	private void saveCar(){
@@ -55,7 +69,9 @@ public class SaveCarController {
 			if(consumptionField.getText() != null && !consumptionField.getText().isEmpty()) {
 				car.setConsumption(Double.valueOf(consumptionField.getText()));
 			}
-			
+			if(owners.size() > 0 && ownerSelect.getItems().size()> 0) {
+				car.setOwner(ownerSelect.getValue());
+			}
 			if(car.getCarId() == 0) {
 				carService.save(car);
 			}else {
