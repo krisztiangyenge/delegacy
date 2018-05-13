@@ -9,6 +9,12 @@ import org.slf4j.LoggerFactory;
 
 import delegacy.datasource.ConnectionHandler;
 import delegacy.model.Admin;
+import delegacy.model.Car;
+import delegacy.model.Delegacy;
+import delegacy.model.Worker;
+import delegacy.views.SaveCarController;
+import delegacy.views.SaveDelegacyController;
+import delegacy.views.SaveWorkerController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -72,6 +78,27 @@ public class App extends Application{
 	
 	public void setAdmin(Admin admin) {
 		this.admin = admin;
+	}
+	
+	public void showModifyWorker(Worker worker) {
+		FXMLLoader loader = new FXMLLoader();
+		loadView("saveWorker", loader);
+		((SaveWorkerController)loader.getController()).setWorker(worker);
+		this.showView();
+	}
+	
+	public void showModifyCar(Car car) {
+		FXMLLoader loader = new FXMLLoader();
+		loadView("saveCar", loader);
+		((SaveCarController)loader.getController()).setCar(car);
+		this.showView();
+	}
+	
+	public void showModifyDelegacy(Delegacy delegacy) {
+		FXMLLoader loader = new FXMLLoader();
+		loadView("saveDelegacy", loader);
+		((SaveDelegacyController)loader.getController()).setDelegacy(delegacy);
+		this.showView();
 	}
 	
 	public void changeView(String viewFile){

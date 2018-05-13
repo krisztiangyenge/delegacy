@@ -2,7 +2,9 @@ package delegacy.views;
 
 import java.util.List;
 
+import delegacy.App;
 import delegacy.model.Delegacy;
+import delegacy.model.Worker;
 import delegacy.service.impl.DelegacyServiceImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -52,6 +54,11 @@ public class DelegacyListController {
 			endAddress.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("endAddress"));
 			distance.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("distance"));
 			pay.setCellValueFactory(new PropertyValueFactory<Delegacy, Double>("pay"));
+			
+			delegacysTable.getSelectionModel().selectedItemProperty().addListener((o, oldvalue, newvalue) -> modify(newvalue));
 		}
 	}
+	private void modify(Delegacy delegacy) {
+		App.getInstance().showModifyDelegacy(delegacy);
+}
 }

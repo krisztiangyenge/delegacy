@@ -92,4 +92,16 @@ public class SaveCarController {
 		App.getInstance().changeView("Cars");
 	}
 	
+	public void setCar(Car car){
+		this.car = car;
+		
+		if(this.car != null) {
+			plateNumberField.setText(this.car.getPlateNumber());
+			brandField.setText(this.car.getBrand());
+			nameField.setText(this.car.getCarName());
+			consumptionField.setText(String.valueOf(this.car.getConsumption()));
+			ownerSelect.setValue(this.car.getOwner());
+		}
+	}
+	
 }

@@ -100,10 +100,10 @@ public class SaveDelegacyController {
 			if(distanceField.getText() != null && !distanceField.getText().isEmpty()) {
 				delegacy.setDistance(Double.valueOf(distanceField.getText()));
 			}
-			if(fuelPriceField.getText() != null && !fuelPriceField.getText().isEmpty()) {
+			if(Double.valueOf(fuelPriceField.getText()) > 0 && !fuelPriceField.getText().isEmpty()) {
 				delegacy.setFuelPrice(Double.valueOf(fuelPriceField.getText()));
 			}
-			if(distanceField.getText() != null && !distanceField.getText().isEmpty() && fuelPriceField.getText() != null && !fuelPriceField.getText().isEmpty()) {
+			if(Double.valueOf(distanceField.getText()) > 0 && !distanceField.getText().isEmpty() && Double.valueOf(fuelPriceField.getText()) > 0 && !fuelPriceField.getText().isEmpty() && carSelect.getValue().getConsumption()> 0) {
 				delegacy.setPay(delegacyService.getPay(Double.valueOf(distanceField.getText()), carSelect.getValue().getConsumption(), Double.valueOf(fuelPriceField.getText())));
 			}
 			
@@ -125,5 +125,18 @@ public class SaveDelegacyController {
 	@FXML
 	private void cancel(){
 		App.getInstance().changeView("Delegacys");
+	}
+	
+	public void setDelegacy(Delegacy delegacy){
+		this.delegacy = delegacy;
+		
+		if(this.delegacy != null) {
+			workerSelect.setValue(this.delegacy.getWorkerId());
+			carSelect.setValue(this.delegacy.getCarId());
+			startAddressField.setText(this.delegacy.getStartAddress());
+			endAddressField.setText(this.delegacy.getEndAddress());
+			distanceField.setText(String.valueOf(this.delegacy.getDistance()));
+			fuelPriceField.setText(String.valueOf(this.delegacy.getFuelPrice()));
+		}
 	}
 }

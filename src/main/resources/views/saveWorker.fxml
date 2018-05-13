@@ -48,7 +48,7 @@
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
-            <Button mnemonicParsing="false" onAction="#saveWorker" text="Mentés" />
+          <Button mnemonicParsing="false" onAction="#saveWorker" text="Mentés" />
           <Button mnemonicParsing="false" onAction="#cancel" text="Mégse" />
         </buttons>
          <padding>

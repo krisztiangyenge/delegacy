@@ -2,6 +2,7 @@ package delegacy.views;
 
 import java.util.List;
 
+import delegacy.App;
 import delegacy.model.Car;
 import delegacy.service.impl.CarServiceImpl;
 import javafx.collections.FXCollections;
@@ -49,6 +50,12 @@ public class CarListController {
 			carName.setCellValueFactory(new PropertyValueFactory<Car, String>("carName"));
 			carConsumption.setCellValueFactory(new PropertyValueFactory<Car, Double>("consumption"));
 			carOwner.setCellValueFactory(new PropertyValueFactory<Car, String>("owner"));
+			
+			carsTable.getSelectionModel().selectedItemProperty().addListener((o, oldvalue, newvalue) -> modify(newvalue));
 		}
 	}
+	
+	private void modify(Car car) {
+		App.getInstance().showModifyCar(car);
+}
 }

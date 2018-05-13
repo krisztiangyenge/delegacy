@@ -64,4 +64,13 @@ public class SaveWorkerController {
 		App.getInstance().changeView("Workers");
 	}
 	
+	public void setWorker(Worker worker){
+		this.worker = worker;
+		
+		if(this.worker != null) {
+			firstNameField.setText(this.worker.getFirstName());
+			lastNameField.setText(this.worker.getLastName());
+		}
+	}
+	
 }

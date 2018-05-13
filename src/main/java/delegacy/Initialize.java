@@ -80,7 +80,9 @@ public class Initialize {
 		delegacy.setWorkerId(wl.get(0));
 		delegacy.setStartAddress("Debrecen");
 		delegacy.setEndAddress("Sopron");
-		delegacy.setDistance(350);
+		delegacy.setDistance(500);
+		delegacy.setFuelPrice(350);
+		delegacy.setPay(18375.0);
 		DelegacyServiceImpl ds = new DelegacyServiceImpl();
 		ds.save(delegacy);
 

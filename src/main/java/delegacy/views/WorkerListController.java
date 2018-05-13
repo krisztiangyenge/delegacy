@@ -2,6 +2,7 @@ package delegacy.views;
 
 import java.util.List;
 
+import delegacy.App;
 import delegacy.model.Worker;
 import delegacy.service.impl.WorkerServiceImpl;
 import javafx.collections.FXCollections;
@@ -38,6 +39,12 @@ public class WorkerListController {
 			
 			firstName.setCellValueFactory(new PropertyValueFactory<Worker, String>("firstName"));
 			lastName.setCellValueFactory(new PropertyValueFactory<Worker, String>("lastName"));
+			
+			workersTable.getSelectionModel().selectedItemProperty().addListener((o, oldvalue, newvalue) -> modify(newvalue));
 		}
+	}
+	
+	private void modify(Worker worker) {
+			App.getInstance().showModifyWorker(worker);
 	}
 }
