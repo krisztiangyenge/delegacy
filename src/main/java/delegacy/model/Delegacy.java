@@ -37,6 +37,26 @@ public class Delegacy {
 	
 	private Double distance;
 	
+	private Double pay;
+	
+	private Double fuelPrice;
+	
+	public Double getFuelPrice() {
+		return fuelPrice;
+	}
+	
+	public void setFuelPrice(double fuelPrice) {
+		this.fuelPrice = fuelPrice;
+	}
+	
+	public Double getPay() {
+		return pay;
+	}
+	
+	public void setPay(Double pay) {
+		this.pay = pay;
+	}
+	
 	@XmlAttribute
 	public int getDelegacyId() {
 		return delegacyId;

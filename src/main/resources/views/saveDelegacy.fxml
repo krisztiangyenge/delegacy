@@ -36,6 +36,7 @@
                   <Label text="Indulási cím:" GridPane.rowIndex="2" />
                   <Label text="Érkezési cím:" GridPane.rowIndex="3" />
                   <Label text="Távolság:" GridPane.rowIndex="4" />
+                  <Label text="Benzin ár:" GridPane.rowIndex="5" />
                   <ComboBox fx:id="workerSelect" onAction="#workerChange" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER"/>
                   <ComboBox fx:id="carSelect" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER"/>                  
                   <TextField fx:id="startAddressField" maxWidth="200.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2"  GridPane.valignment="CENTER">
@@ -49,6 +50,11 @@
                      </GridPane.margin>
                   </TextField>
                   <TextField fx:id="distanceField" maxWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets top="5.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="fuelPriceField" maxWidth="200.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5"  GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets top="5.0" />
                      </GridPane.margin>

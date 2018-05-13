@@ -47,6 +47,9 @@ public class SaveDelegacyController {
 	private TextField distanceField;
 	
 	@FXML
+	private TextField fuelPriceField;
+	
+	@FXML
 	private Label errorLabel;
 	
 	@FXML
@@ -96,6 +99,12 @@ public class SaveDelegacyController {
 			}
 			if(distanceField.getText() != null && !distanceField.getText().isEmpty()) {
 				delegacy.setDistance(Double.valueOf(distanceField.getText()));
+			}
+			if(fuelPriceField.getText() != null && !fuelPriceField.getText().isEmpty()) {
+				delegacy.setFuelPrice(Double.valueOf(fuelPriceField.getText()));
+			}
+			if(distanceField.getText() != null && !distanceField.getText().isEmpty() && fuelPriceField.getText() != null && !fuelPriceField.getText().isEmpty()) {
+				delegacy.setPay(delegacyService.getPay(Double.valueOf(distanceField.getText()), carSelect.getValue().getConsumption(), Double.valueOf(fuelPriceField.getText())));
 			}
 			
 			if(delegacy.getDelegacyId() == 0) {

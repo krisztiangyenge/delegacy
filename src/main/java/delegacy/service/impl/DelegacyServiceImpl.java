@@ -24,4 +24,11 @@ public class DelegacyServiceImpl implements DelegacyService {
 	public List<Delegacy> getAllDelegacy(){
 		return delegacyDao.getAllDelegacy();
 	}
+	
+	public Double getPay(Double distance, Double consumption, Double FuelPrice) {
+		
+		double pay = (distance/100) * consumption * FuelPrice;
+		
+		return pay;
+	}
 }

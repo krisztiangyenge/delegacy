@@ -36,6 +36,9 @@ public class DelegacyListController {
 	private TableColumn<Delegacy, String> distance;
 	
 	@FXML
+	private TableColumn<Delegacy, Double> pay;
+	
+	@FXML
 	private void initialize(){
 		List<Delegacy> list = delegacyService.getAllDelegacy();
 		
@@ -43,12 +46,12 @@ public class DelegacyListController {
 			delegacys.addAll(list);
 		
 			delegacysTable.setItems(delegacys);
-			
 			cars.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("car"));
 			worker.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("worker"));
 			startAddress.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("startAddress"));
 			endAddress.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("endAddress"));
 			distance.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("distance"));
+			pay.setCellValueFactory(new PropertyValueFactory<Delegacy, Double>("pay"));
 		}
 	}
 }
