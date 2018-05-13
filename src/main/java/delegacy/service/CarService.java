@@ -3,6 +3,7 @@ package delegacy.service;
 import java.util.List;
 
 import delegacy.model.Car;
+import delegacy.model.Worker;
 
 public interface CarService {
 	
@@ -15,4 +16,6 @@ public interface CarService {
 	List<Car> getAllCars();
 	
 	List<Car> getAvailableCars();
+	
+	List<Car> getCarByWorker(Worker worker);
 }

@@ -34,7 +34,7 @@ private AdminDaoImpl dao = new AdminDaoImpl();
 		try{
 			Admin admin = dao.Login(usernameField.getText(), passwordField.getText());
 			App.getInstance().setAdmin(admin);
-			App.getInstance().changeView("saveCar");
+			App.getInstance().changeView("Delegacys");
 		}catch(Exception e){
 			errorLabel.setText(e.getMessage());
 		}

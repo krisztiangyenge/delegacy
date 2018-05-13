@@ -6,9 +6,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import delegacy.dao.impl.WorkerDaoImpl;
 import delegacy.dao.impl.AdminDaoImpl;
-import delegacy.dao.impl.CarDaoImpl;
 import delegacy.model.Admin;
 import delegacy.model.Car;
 import delegacy.model.Delegacy;
@@ -27,9 +25,9 @@ public class Initialize {
 			worker.setFirstName("John");
 			worker.setLastName("Snow");
 			
-			WorkerDaoImpl dao = new WorkerDaoImpl();
+			WorkerServiceImpl ws = new WorkerServiceImpl();
 			
-			dao.save(worker);
+			ws.save(worker);
 		} catch(Exception e){
 			logger.error(e.getMessage());
 		}
@@ -44,8 +42,13 @@ public class Initialize {
 			car.setAvailable(true);
 			car.setConsumption(10.5);
 			
-			CarDaoImpl dao = new CarDaoImpl();
-			dao.save(car);
+			WorkerServiceImpl ws = new WorkerServiceImpl();
+			List<Worker> wl = ws.getAllWorker();
+			
+			car.setOwner(wl.get(0));
+			
+			CarServiceImpl cs = new CarServiceImpl();
+			cs.save(car);
 		} catch(Exception e){
 			logger.error(e.getMessage());
 		}

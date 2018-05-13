@@ -3,6 +3,7 @@ package delegacy.dao;
 import java.util.List;
 
 import delegacy.model.Car;
+import delegacy.model.Worker;
 
 public interface CarDao {
 	
@@ -15,5 +16,7 @@ public interface CarDao {
 	List<Car> getCars();
 	
 	List<Car> getActiveCars();
+	
+	List<Car> getCarByWorker(Worker worker);
 	
 }

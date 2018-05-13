@@ -40,10 +40,10 @@ public class App extends Application{
 	}
 	
 	public static void main(String[] args) {
-		
-		Initialize.initializeCar();
+
 		Initialize.initializeAdmin();
 		Initialize.initializeWorker();
+		Initialize.initializeCar();
 		Initialize.InitializeDelegacy();
 		logger.info("Adatok inicializálva");
 		launch(args);
@@ -63,7 +63,7 @@ public class App extends Application{
 		});
 		
 		try{
-			changeView("Delegacys");
+			changeView("Login");
 		}catch(Exception e){
 			logger.error(e.getMessage());
 		}

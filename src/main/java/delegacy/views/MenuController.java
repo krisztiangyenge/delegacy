@@ -31,5 +31,6 @@ public class MenuController {
 	
 	@FXML
 	private void newDelegacy(){
+		App.getInstance().changeView("saveDelegacy");
 	}
 }

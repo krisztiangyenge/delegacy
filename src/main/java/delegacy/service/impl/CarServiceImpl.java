@@ -4,6 +4,7 @@ import java.util.List;
 
 import delegacy.dao.impl.CarDaoImpl;
 import delegacy.model.Car;
+import delegacy.model.Worker;
 import delegacy.service.CarService;
 
 public class CarServiceImpl implements CarService {
@@ -28,6 +29,12 @@ public class CarServiceImpl implements CarService {
 	
 	public List<Car> getAvailableCars() {
 		return carDao.getActiveCars();
+	}
+	
+	public List<Car> getCarByWorker(Worker worker){
+		
+		return carDao.getCarByWorker(worker);
+		
 	}
 	
 }

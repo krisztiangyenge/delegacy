@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import delegacy.dao.CarDao;
 import delegacy.datasource.ConnectionHandler;
 import delegacy.model.Car;
+import delegacy.model.Worker;
 
 public class CarDaoImpl implements CarDao {
 	
@@ -88,5 +89,17 @@ public class CarDaoImpl implements CarDao {
 		return carList;
 	}
 	
-	
+	public List<Car>getCarByWorker(Worker worker){
+		EntityManager em = emf.createEntityManager();
+		List<Car> carList =null;
+		try {
+			TypedQuery<Car> query = em.createQuery("SELECT c FROM Car c WHERE c.owner.workerId = :owner", Car.class);
+			carList = query.setParameter("owner", worker.getWorkerId()).getResultList();
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}finally{
+			em.close();
+		}
+		return carList;
+	}
 }
