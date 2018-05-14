@@ -4,7 +4,6 @@ import java.util.List;
 
 import delegacy.App;
 import delegacy.model.Delegacy;
-import delegacy.model.Worker;
 import delegacy.service.impl.DelegacyServiceImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,6 +12,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * Az kiküldetéseket megjelenítő nézetért felelős controller.
+ * @author Krisztian
+ *
+ */
 public class DelegacyListController {
 	
 	private static final DelegacyServiceImpl delegacyService = new DelegacyServiceImpl();
@@ -60,5 +64,5 @@ public class DelegacyListController {
 	}
 	private void modify(Delegacy delegacy) {
 		App.getInstance().showModifyDelegacy(delegacy);
-}
+	}
 }

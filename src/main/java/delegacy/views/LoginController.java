@@ -9,8 +9,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+/**
+ * A bejelentkező nézetért felelős controller.
+ * @author Krisztian
+ *
+ */
 public class LoginController {
-private AdminDaoImpl dao = new AdminDaoImpl();
+	private AdminDaoImpl dao = new AdminDaoImpl();
 	
 	@FXML
 	private TextField usernameField;

@@ -15,6 +15,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+/**
+ * Az autó mentés nézetért felelős controller.
+ * @author Krisztian
+ *
+ */
 public class SaveCarController {
 	private ObservableList<Worker> owners = FXCollections.observableArrayList();
 
@@ -92,6 +97,10 @@ public class SaveCarController {
 		App.getInstance().changeView("Cars");
 	}
 	
+	/**
+	 * A módosítandó autót beállító metódus.
+	 * @param car A módosítandó autó
+	 */
 	public void setCar(Car car){
 		this.car = car;
 		

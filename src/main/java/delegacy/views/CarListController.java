@@ -12,6 +12,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * Az autókat megjelenítő nézetért felelős controller.
+ * @author Krisztian
+ *
+ */
 public class CarListController {
 	
 	private static final CarServiceImpl carService = new CarServiceImpl();
@@ -57,5 +62,5 @@ public class CarListController {
 	
 	private void modify(Car car) {
 		App.getInstance().showModifyCar(car);
-}
+	}
 }

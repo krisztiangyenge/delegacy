@@ -3,6 +3,11 @@ package delegacy.views;
 import delegacy.App;
 import javafx.fxml.FXML;
 
+/**
+ * Az menüt megjelenítő nézetért felelős controller.
+ * @author Krisztian
+ *
+ */
 public class MenuController {
 	@FXML
 	private void openCars(){

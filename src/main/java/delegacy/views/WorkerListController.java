@@ -12,6 +12,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * Az dolgozókat megjelenítő nézetért felelős controller.
+ * @author Krisztian
+ *
+ */
 public class WorkerListController {
 	
 	private static final WorkerServiceImpl workerService = new WorkerServiceImpl();

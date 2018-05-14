@@ -14,12 +14,21 @@ import delegacy.datasource.ConnectionHandler;
 import delegacy.model.Car;
 import delegacy.model.Worker;
 
+/**
+ * A CarDao interfészt implementáló osztály.
+ * @author Krisztian
+ *
+ */
 public class CarDaoImpl implements CarDao {
 	
 	private EntityManagerFactory emf = ConnectionHandler.getEntityManagerFactory();
 	
 	private Logger logger = LoggerFactory.getLogger(CarDaoImpl.class);
 
+	/* (non-Javadoc)
+	 * @see delegacy.dao.CarDao#save(delegacy.model.Car)
+	 */
+	@Override
 	public void save(Car car){
 		EntityManager em = emf.createEntityManager();
 		try{
@@ -33,6 +42,10 @@ public class CarDaoImpl implements CarDao {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see delegacy.dao.CarDao#update(delegacy.model.Car)
+	 */
+	@Override
 	public void update(Car car){
 		EntityManager em = emf.createEntityManager();
 		try{
@@ -47,6 +60,10 @@ public class CarDaoImpl implements CarDao {
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see delegacy.dao.CarDao#remove(delegacy.model.Car)
+	 */
+	@Override
 	public void remove(Car car){
 		EntityManager em = emf.createEntityManager();
 		try{
@@ -60,6 +77,27 @@ public class CarDaoImpl implements CarDao {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see storage.dao.ProductDao#get(int)
+	 */
+	@Override
+	public Car get(int id) {
+		EntityManager em = emf.createEntityManager();
+		Car car = null;
+		try{
+			car = em.find(Car.class, id);
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}finally{
+			em.close();
+		}
+		return car;
+	}
+	
+	/* (non-Javadoc)
+	 * @see delegacy.dao.CarDao#getCars(delegacy.model.Car)
+	 */
+	@Override
 	public List<Car> getCars(){
 		EntityManager em = emf.createEntityManager();
 		List<Car> carList =null;
@@ -74,21 +112,10 @@ public class CarDaoImpl implements CarDao {
 		return carList;
 	}
 	
-	public List<Car> getActiveCars(){
-		EntityManager em = emf.createEntityManager();
-		List<Car> carList =null;
-		try {
-			TypedQuery<Car> query = em.createQuery("SELECT c FROM Car c WHERE c.available = :available", Car.class);
-			carList = query.setParameter("available", true).getResultList();
-		}catch(Exception e){
-			logger.error(e.getMessage());
-		}finally{
-			em.close();
-		}
-		
-		return carList;
-	}
-	
+	/* (non-Javadoc)
+	 * @see delegacy.dao.CarDao#getCarByWorker(delegacy.model.Car)
+	 */
+	@Override
 	public List<Car>getCarByWorker(Worker worker){
 		EntityManager em = emf.createEntityManager();
 		List<Car> carList =null;

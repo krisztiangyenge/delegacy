@@ -10,6 +10,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+/**
+ * A dolgozó mentés nézetért felelős controller.
+ * @author Krisztian
+ *
+ */
 public class SaveWorkerController {
 	private Logger logger = LoggerFactory.getLogger(SaveWorkerController.class);
 	
@@ -64,6 +69,10 @@ public class SaveWorkerController {
 		App.getInstance().changeView("Workers");
 	}
 	
+	/**
+	 * A módosítandó dolgozót beállító metódus.
+	 * @param worker A módosítandó dolgozós
+	 */
 	public void setWorker(Worker worker){
 		this.worker = worker;
 		

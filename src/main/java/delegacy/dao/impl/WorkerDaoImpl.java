@@ -12,11 +12,20 @@ import delegacy.dao.WorkerDao;
 import delegacy.datasource.ConnectionHandler;
 import delegacy.model.Worker;
 
+/**
+ * A WorkerDao interfészt implementáló osztály.
+ * @author Krisztian
+ *
+ */
 public class WorkerDaoImpl implements WorkerDao {
 	private EntityManagerFactory emf = ConnectionHandler.getEntityManagerFactory();
 	
 	private Logger logger = LoggerFactory.getLogger(WorkerDaoImpl.class);
 
+	/* (non-Javadoc)
+	 * @see delegacy.dao.WorkerDao#save(delegacy.model.Worker)
+	 */
+	@Override
 	public void save(Worker worker){
 		EntityManager em = emf.createEntityManager();
 		try{
@@ -30,6 +39,10 @@ public class WorkerDaoImpl implements WorkerDao {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see delegacy.dao.WorkerDao#update(delegacy.model.Worker)
+	 */
+	@Override
 	public void update(Worker worker){
 		EntityManager em = emf.createEntityManager();
 		try{
@@ -44,6 +57,10 @@ public class WorkerDaoImpl implements WorkerDao {
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see delegacy.dao.WorkerDao#remove(delegacy.model.Worker)
+	 */
+	@Override
 	public void remove(Worker worker){
 		EntityManager em = emf.createEntityManager();
 		try{
@@ -57,6 +74,10 @@ public class WorkerDaoImpl implements WorkerDao {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see delegacy.dao.WorkerDao#getAllWorker(delegacy.model.Worker)
+	 */
+	@Override
 	public List<Worker> getAllWorker(){
 		EntityManager em = emf.createEntityManager();
 		
@@ -70,18 +91,5 @@ public class WorkerDaoImpl implements WorkerDao {
 		}
 		
 		return workerList;
-	}
-	
-	public Worker getWorker(int id) {
-		EntityManager em = emf.createEntityManager();
-		Worker worker = null;
-		try {
-			worker = em.find(Worker.class, id);
-		}catch(Exception e){
-			logger.error(e.getMessage());
-		}finally {
-			em.close();
-		}
-		return worker;
 	}
 }

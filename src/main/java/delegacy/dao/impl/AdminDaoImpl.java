@@ -12,12 +12,21 @@ import delegacy.dao.AdminDao;
 import delegacy.datasource.ConnectionHandler;
 import delegacy.model.Admin;
 
+/**
+ * A {@link delegacy.dao.AdminDao} intérfészt implementáló osztály.
+ * @author Krisztian
+ *
+ */
 public class AdminDaoImpl implements AdminDao{
 	
 	private EntityManagerFactory emf = ConnectionHandler.getEntityManagerFactory();
 	
 	private Logger logger = LoggerFactory.getLogger(AdminDaoImpl.class);
 
+	/* (non-Javadoc)
+	 * @see delegacy.dao.AdminDao#save(delegacy.model.Admin)
+	 */
+	@Override
 	public void save(Admin admin){
 		EntityManager em = emf.createEntityManager();
 		try{
@@ -31,6 +40,10 @@ public class AdminDaoImpl implements AdminDao{
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see delegacy.dao.AdminDao#Login(delegacy.model.Admin)
+	 */
+	@Override
 	public Admin Login(String name, String password) throws Exception {
 		EntityManager em = emf.createEntityManager();
 		Admin admin = null;

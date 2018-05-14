@@ -21,19 +21,47 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * Az alkalmazás fő controllere.
+ * @author Krisztian
+ *
+ */
 
 public class App extends Application{
 	
+	
+	/**
+	 * Az App osztály példánya.
+	 */
 	private static App instance;
+	
+	/**
+	 * Az alkalmazás nézete.
+	 */
 	private BorderPane view;
+	
+	/**
+	 * Az alkalmazás Stage-e.
+	 */
 	private Stage primaryStage;
 	private Admin admin = null;
+	
+	/**
+	 * Az aktuális példányt beállító praméter nélküli konstruktor.
+	 */
 	public App() {
 		instance = this;
 	}
 	
+	/**
+	 * Az osztályon belüli logolást végző osztály.
+	 */
 	private static Logger logger = LoggerFactory.getLogger(App.class); 
 	
+	/**
+	 * Az alkalmazás aktuális példányát visszaadó metódus.
+	 * @return Az alkalmazás aktulális példánya
+	 */
 	public static App getInstance() {
 		return instance;
 	}
@@ -45,6 +73,10 @@ public class App extends Application{
 		primaryStage.show();
 	}
 	
+	/**
+	 * Az alkalmazás belépési pontja.
+	 * @param args parancssori argumentumok
+	 */
 	public static void main(String[] args) {
 
 		Initialize.initializeAdmin();
@@ -76,10 +108,18 @@ public class App extends Application{
 		
 	}
 	
+	/**
+	 * Beállítja az alkalmazást használó Admin-t.
+	 * @param admin az alkalmazást használó admin
+	 */
 	public void setAdmin(Admin admin) {
 		this.admin = admin;
 	}
 	
+	/**
+	 * A dolgozó módosítás nézetet betöltő metódus.
+	 * @param worker A módosítandó {@link delegacy.model.Worker} objektum
+	 */
 	public void showModifyWorker(Worker worker) {
 		FXMLLoader loader = new FXMLLoader();
 		loadView("saveWorker", loader);
@@ -87,6 +127,10 @@ public class App extends Application{
 		this.showView();
 	}
 	
+	/**
+	 * Az autó módosítás nézetet betöltő metódus.
+	 * @param car A módosítandó {@link delegacy.model.Car} objektum
+	 */
 	public void showModifyCar(Car car) {
 		FXMLLoader loader = new FXMLLoader();
 		loadView("saveCar", loader);
@@ -94,6 +138,10 @@ public class App extends Application{
 		this.showView();
 	}
 	
+	/**
+	 * A kiküldetés módosítás nézetet betöltő metódus.
+	 * @param delegacy A módosítandó {@link delegacy.model.Delegacy} objektum
+	 */
 	public void showModifyDelegacy(Delegacy delegacy) {
 		FXMLLoader loader = new FXMLLoader();
 		loadView("saveDelegacy", loader);
@@ -101,6 +149,10 @@ public class App extends Application{
 		this.showView();
 	}
 	
+	/**
+	 * A nézetek váltásáért felelős metódus.
+	 * @param viewFile A nézet file
+	 */
 	public void changeView(String viewFile){
 		FXMLLoader loader = new FXMLLoader();
 		loadView(viewFile, loader);
@@ -121,6 +173,9 @@ public class App extends Application{
 		}	
 	}
 	
+	/**
+	 * Az alkalmazás bezárását végző metódus.
+	 */
 	public void closeHandler(){
 		ConnectionHandler.closeConnection();
 		System.exit(0);

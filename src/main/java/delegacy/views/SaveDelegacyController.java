@@ -17,6 +17,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+/**
+ * A kiküldetés mentés nézetért felelős controller.
+ * @author Krisztian
+ *
+ */
 public class SaveDelegacyController {
 	private ObservableList<Worker> workers = FXCollections.observableArrayList();
 	private ObservableList<Car> cars = FXCollections.observableArrayList();
@@ -127,6 +132,10 @@ public class SaveDelegacyController {
 		App.getInstance().changeView("Delegacys");
 	}
 	
+	/**
+	 * A módosítandó kiküldetést beállító metódus.
+	 * @param delegacy A módosítandó kiküldetés
+	 */
 	public void setDelegacy(Delegacy delegacy){
 		this.delegacy = delegacy;
 		

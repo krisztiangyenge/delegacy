@@ -8,14 +8,24 @@ import javax.persistence.EntityManagerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import delegacy.dao.DelegacyDao;
 import delegacy.datasource.ConnectionHandler;
 import delegacy.model.Delegacy;
 
-public class DelegacyDaoImpl {
+/**
+ * A DelegacyDao interfészt implementáló osztály.
+ * @author Krisztian
+ *
+ */
+public class DelegacyDaoImpl implements DelegacyDao {
 	private EntityManagerFactory emf = ConnectionHandler.getEntityManagerFactory();
 	
 	private Logger logger = LoggerFactory.getLogger(DelegacyDaoImpl.class);
 
+	/* (non-Javadoc)
+	 * @see delegacy.dao.DelegacyDao#save(delegacy.model.Delegacy)
+	 */
+	@Override
 	public void save(Delegacy delegacy){
 		EntityManager em = emf.createEntityManager();
 		try{
@@ -29,6 +39,10 @@ public class DelegacyDaoImpl {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see delegacy.dao.DelegacyDao#update(delegacy.model.Delegacy)
+	 */
+	@Override
 	public void update(Delegacy delegacy){
 		EntityManager em = emf.createEntityManager();
 		try{
@@ -43,6 +57,10 @@ public class DelegacyDaoImpl {
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see delegacy.dao.DelegacyDao#remove(delegacy.model.Delegacy)
+	 */
+	@Override
 	public void remove(Delegacy delegacy){
 		EntityManager em = emf.createEntityManager();
 		try{
@@ -56,6 +74,10 @@ public class DelegacyDaoImpl {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see delegacy.dao.DelegacyDao#getAllDelegacy(delegacy.model.Delegacy)
+	 */
+	@Override
 	public List<Delegacy> getAllDelegacy(){
 		EntityManager em = emf.createEntityManager();
 		
