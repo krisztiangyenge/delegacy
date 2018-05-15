@@ -2,6 +2,7 @@ package delegacy.dao;
 
 import java.util.List;
 
+import delegacy.model.Car;
 import delegacy.model.Delegacy;
 
 /**
@@ -28,6 +29,13 @@ public interface DelegacyDao {
 	 * @param delegacy A törölni kívánt {@link delegacy.model.Delegacy} objektum
 	 */
 	void remove (Delegacy delegacy);
+	
+	/**
+	 * Visszaad egy kiküldetést id alapján.
+	 * @param id a kiküldetés id-ja
+	 * @return {@link delegacy.model.Delegacy} objektum
+	 */
+	Delegacy get (int id);
 	
 	/**
 	 * A kiküldetéseket listaázó metódus.

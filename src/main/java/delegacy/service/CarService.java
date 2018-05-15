@@ -53,4 +53,12 @@ public interface CarService {
 	 * @return Az autók listája
 	 */
 	List<Car> getCarByWorker(Worker worker);
+	
+	/**
+	 * A validálást végző metódus.
+	 * @param car a validálandó objektum
+	 * @return A validálás eredménye
+	 * @throws IllegalArgumentException Ha nem valid az objektum, kivételt dob
+	 */
+	boolean validate(Car car) throws IllegalArgumentException;
 }

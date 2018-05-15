@@ -19,7 +19,9 @@ public class DelegacyServiceImpl implements DelegacyService {
 	 */
 	@Override
 	public void save(Delegacy delegacy) throws IllegalArgumentException{
-		delegacyDao.save(delegacy);
+		if(this.validate(delegacy)) {
+			delegacyDao.save(delegacy);
+		}
 	}
 	
 	/* (non-Javadoc)
@@ -27,7 +29,9 @@ public class DelegacyServiceImpl implements DelegacyService {
 	 */
 	@Override
 	public void update(Delegacy delegacy) throws IllegalArgumentException{
-		delegacyDao.update(delegacy);
+		if(this.validate(delegacy)) {
+			delegacyDao.update(delegacy);
+		}
 	}
 	
 	/* (non-Javadoc)
@@ -36,6 +40,14 @@ public class DelegacyServiceImpl implements DelegacyService {
 	@Override
 	public void remove(Delegacy delegacy) throws IllegalArgumentException{
 		delegacyDao.remove(delegacy);
+	}
+	
+	/* (non-Javadoc)
+	 * @see delegacy.service.CarService#get(delegacy.model.Delegacy)
+	 */
+	@Override
+	public Delegacy get(int id) {
+		return delegacyDao.get(id);
 	}
 	
 	/* (non-Javadoc)
@@ -51,9 +63,56 @@ public class DelegacyServiceImpl implements DelegacyService {
 	 */
 	@Override
 	public Double getPay(Double distance, Double consumption, Double FuelPrice) {
+		if(this.validatePay(distance, consumption, FuelPrice)) {
+			double pay = (distance/100) * consumption * FuelPrice;
+			
+			return pay;
+		}
 		
-		double pay = (distance/100) * consumption * FuelPrice;
+		return null;
+	}
+	
+	/* (non-Javadoc)
+	 * @see delegacy.service.DelegacyService#validate(delegacy.model.Delegacy)
+	 */
+	@Override
+	public boolean validate(Delegacy delegacy){
+		if(delegacy.getStartAddress() == null || delegacy.getStartAddress().trim().isEmpty()) {
+			throw new IllegalArgumentException("Nem adott meg induló címet.");
+		}
 		
-		return pay;
+		if(delegacy.getEndAddress() == null || delegacy.getEndAddress().trim().isEmpty()) {
+			throw new IllegalArgumentException("Nem adott meg vég címet.");
+		}
+		
+		if(delegacy.getDistance() < 0 || delegacy.getDistance() == 0) {
+			throw new IllegalArgumentException("Nem adott meg érvényes távolságot.");
+		}
+		
+		if(delegacy.getFuelPrice() < 0 || delegacy.getFuelPrice() == 0) {
+			throw new IllegalArgumentException("Nem adott meg érvényes benzin árat.");
+		}
+		
+		if(delegacy.getWorkerId() == null) {
+			throw new IllegalArgumentException("Nem adott meg dolgozót.");
+		}
+		
+		if(delegacy.getCarId() == null) {
+			throw new IllegalArgumentException("Nem adott meg autót.");
+		}
+		
+		return true;
+	}
+	
+	/* (non-Javadoc)
+	 * @see delegacy.service.DelegacyService#validate(delegacy.model.Delegacy)
+	 */
+	@Override
+	public boolean validatePay(Double distance, Double consumption, Double FuelPrice) {
+		if(distance < 0 || consumption < 0 || FuelPrice < 0) {
+			throw new IllegalArgumentException("Nem megfelelő adatok a számításhoz.");
+		}
+		
+		return true;
 	}
 }

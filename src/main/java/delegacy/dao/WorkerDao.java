@@ -2,6 +2,7 @@ package delegacy.dao;
 
 import java.util.List;
 
+import delegacy.model.Car;
 import delegacy.model.Worker;
 
 /**
@@ -28,6 +29,13 @@ public interface WorkerDao {
 	 * @param worker A tötölni kívánt {@link delegacy.model.Worker} objektum
 	 */
 	void remove (Worker worker);
+	
+	/**
+	 * Visszaad egy dolgozót id alapján.
+	 * @param id a dolgozó id-ja
+	 * @return {@link delegacy.model.Worker} objektum
+	 */
+	Worker get (int id);
 	
 	/**
 	 * A dolgozókat listaázó metódus.

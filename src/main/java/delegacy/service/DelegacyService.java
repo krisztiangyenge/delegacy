@@ -2,7 +2,9 @@ package delegacy.service;
 
 import java.util.List;
 
+import delegacy.model.Car;
 import delegacy.model.Delegacy;
+import delegacy.model.Worker;
 
 /**
  * A kiküldetés controller interfésze. Ide kerülnek a felületről hívott metódusok.
@@ -33,6 +35,13 @@ public interface DelegacyService {
 	void remove(Delegacy delegacy) throws IllegalArgumentException;
 	
 	/**
+	 *  Visszaad egy kiküldetést id alapján.
+	 * @param id A kiküldetés id-ja
+	 * @return A kért kiküldetés
+	 */
+	Delegacy get(int id);
+	
+	/**
 	 * Az összes kiküldetés listázása.
 	 * @return A kiküldetések listája
 	 */
@@ -44,5 +53,22 @@ public interface DelegacyService {
 	  * @param FuelPrice Az üzemanyag ára
 	  * @return A kifizetendő összeg
 	  */
+	
 	Double getPay(Double distance, Double consumption, Double FuelPrice);
+	/**
+	 * A validálást végző metódus.
+	 * @param delegacy a validálandó objektum
+	 * @return A validálás eredménye
+	 * @throws IllegalArgumentException Ha nem valid az objektum, kivételt dob
+	 */
+	boolean validate(Delegacy delegacy) throws IllegalArgumentException;
+	 /**
+	  * 
+	  * @param distance A távolság
+	  * @param consumption A fogyasztás
+	  * @param FuelPrice A benzin ár
+	  * @return Számolható-e az összeg
+	  * @throws IllegalArgumentException Ha nincs meg minden praméter a számoláshoz hibát dob
+	  */
+	boolean validatePay(Double distance, Double consumption, Double FuelPrice) throws IllegalArgumentException;
 }

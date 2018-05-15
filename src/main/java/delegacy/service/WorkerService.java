@@ -2,6 +2,7 @@ package delegacy.service;
 
 import java.util.List;
 
+import delegacy.model.Car;
 import delegacy.model.Worker;
 
 /**
@@ -33,8 +34,23 @@ public interface WorkerService {
 	void remove(Worker worker) throws IllegalArgumentException;
 	
 	/**
+	 *  Visszaad egy dolgozót id alapján.
+	 * @param id A dolgozó id-ja
+	 * @return A kért dolgozó
+	 */
+	Worker get(int id);
+	
+	/**
 	 * Az összes dolgozó listázása.
 	 * @return A dolgozók listája
 	 */
 	List<Worker> getAllWorker();
+	
+	/**
+	 * A validálást végző metódus.
+	 * @param worker a validálandó objektum
+	 * @return A validálás eredménye
+	 * @throws IllegalArgumentException Ha nem valid az objektum, kivételt dob
+	 */
+	boolean validate(Worker worker) throws IllegalArgumentException;
 }

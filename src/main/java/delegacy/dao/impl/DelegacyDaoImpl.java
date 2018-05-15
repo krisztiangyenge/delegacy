@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import delegacy.dao.DelegacyDao;
 import delegacy.datasource.ConnectionHandler;
+import delegacy.model.Car;
 import delegacy.model.Delegacy;
 
 /**
@@ -72,6 +73,23 @@ public class DelegacyDaoImpl implements DelegacyDao {
 		}finally{
 			em.close();
 		}
+	}
+	
+	/* (non-Javadoc)
+	 * @see storage.dao.ProductDao#get(int)
+	 */
+	@Override
+	public Delegacy get(int id) {
+		EntityManager em = emf.createEntityManager();
+		Delegacy delegacy = null;
+		try{
+			delegacy = em.find(Delegacy.class, id);
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}finally{
+			em.close();
+		}
+		return delegacy;
 	}
 	
 	/* (non-Javadoc)

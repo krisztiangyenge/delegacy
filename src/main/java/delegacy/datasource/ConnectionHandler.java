@@ -8,6 +8,7 @@ import javax.persistence.Persistence;
  * @author Krisztian
  *
  */
+
 public class ConnectionHandler {
 
 	private static final String persistenceUnitName = "carDelegacy";

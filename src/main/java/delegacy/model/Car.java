@@ -21,6 +21,26 @@ public class Car {
 	private int carId;
 	
 	/**
+	 * Az osztály konstruktora.
+	 * @param plateNumber Az autó rendszáma
+	 * @param carName Az autó tipusa
+	 * @param brand Az autó márkája
+	 * @param consumption Az autó fogyasztása
+	 */
+	public Car(String plateNumber, String carName, String brand, double consumption) {
+		super();
+		this.plateNumber = plateNumber;
+		this.carName = carName;
+		this.brand = brand;
+		this.consumption = consumption;
+	}
+	/**
+  	 *Az osztály paraméter nélküli konstruktora. 
+  	 */
+	public Car() {
+	}
+
+	/**
 	 * Az autó id-ját visszaadó metódus.
 	 * @return Az autó id-ja
 	 */

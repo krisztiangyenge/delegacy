@@ -24,6 +24,28 @@ public class Delegacy {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int delegacyId;
 	
+	/**
+	 * Az osztály lonstruktora.
+	 * @param startAddress Indulási cím
+	 * @param endAddress Érkezési cím
+	 * @param distance távolság
+	 * @param fuelPrice benzin ár
+	 */
+	public Delegacy(String startAddress, String endAddress, Double distance, Double fuelPrice) {
+		super();
+		this.startAddress = startAddress;
+		this.endAddress = endAddress;
+		this.distance = distance;
+		this.fuelPrice = fuelPrice;
+	}
+
+	/**
+	 * Az osztály paraméter nélküli konstruktora.
+	 */
+	public Delegacy() {
+	}
+
+
 	@ManyToOne
 	@JoinColumn(referencedColumnName="workerId")
 	private Worker worker;

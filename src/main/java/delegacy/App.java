@@ -159,7 +159,7 @@ public class App extends Application{
 
 		if(view != null){
 			this.showView();
-			logger.info("Nézet váltás történt, az új nézet a "+viewFile+".fxml");
+			logger.info("Másik nézet került betöltésre");
 		}
 	}
 	

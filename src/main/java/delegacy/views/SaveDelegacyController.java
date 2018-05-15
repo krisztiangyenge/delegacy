@@ -105,7 +105,7 @@ public class SaveDelegacyController {
 			if(distanceField.getText() != null && !distanceField.getText().isEmpty()) {
 				delegacy.setDistance(Double.valueOf(distanceField.getText()));
 			}
-			if(Double.valueOf(fuelPriceField.getText()) > 0 && !fuelPriceField.getText().isEmpty()) {
+			if(fuelPriceField.getText() != null && !fuelPriceField.getText().isEmpty()) {
 				delegacy.setFuelPrice(Double.valueOf(fuelPriceField.getText()));
 			}
 			if(Double.valueOf(distanceField.getText()) > 0 && !distanceField.getText().isEmpty() && Double.valueOf(fuelPriceField.getText()) > 0 && !fuelPriceField.getText().isEmpty() && carSelect.getValue().getConsumption()> 0) {

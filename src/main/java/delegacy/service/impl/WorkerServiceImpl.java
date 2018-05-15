@@ -3,6 +3,8 @@ package delegacy.service.impl;
 import java.util.List;
 
 import delegacy.dao.impl.WorkerDaoImpl;
+import delegacy.model.Car;
+import delegacy.model.Delegacy;
 import delegacy.model.Worker;
 import delegacy.service.WorkerService;
 
@@ -19,7 +21,9 @@ public class WorkerServiceImpl implements WorkerService {
 	 */
 	@Override
 	public void save(Worker worker) throws IllegalArgumentException{
-		workerDao.save(worker);
+		if(this.validate(worker)) {
+			workerDao.save(worker);
+		}
 	}
 	
 	/* (non-Javadoc)
@@ -27,7 +31,9 @@ public class WorkerServiceImpl implements WorkerService {
 	 */
 	@Override
 	public void update(Worker worker) throws IllegalArgumentException{
-		workerDao.update(worker);
+		if(this.validate(worker)) {
+			workerDao.update(worker);
+		}
 	}
 	
 	/* (non-Javadoc)
@@ -39,10 +45,34 @@ public class WorkerServiceImpl implements WorkerService {
 	}
 	
 	/* (non-Javadoc)
+	 * @see delegacy.service.WorkerService#get(delegacy.model.Worker)
+	 */
+	@Override
+	public Worker get(int id) {
+		return workerDao.get(id);
+	}
+	
+	/* (non-Javadoc)
 	 * @see delegacy.service.WorkerService#getAllWorker(delegacy.model.Worker)
 	 */
 	@Override
 	public List<Worker> getAllWorker(){
 		return workerDao.getAllWorker();
+	}
+	
+	/* (non-Javadoc)
+	 * @see delegacy.service.WorkerService#validate(delegacy.model.Delegacy)
+	 */
+	@Override
+	public boolean validate(Worker worker){
+		if(worker.getFirstName() == null || worker.getFirstName().trim().isEmpty()) {
+			throw new IllegalArgumentException("Nem adott meg vezeték nevet.");
+		}
+		
+		if(worker.getLastName() == null || worker.getLastName().trim().isEmpty()) {
+			throw new IllegalArgumentException("Nem adott meg kereszt nevet.");
+		}
+		
+		return true;
 	}
 }

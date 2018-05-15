@@ -15,6 +15,27 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @XmlRootElement(name="worker")
 public class Worker {
+	
+	/**
+	 * Az osztály konstruktora.
+	 * @param lastName A dolgozó kereszt neve
+	 * @param firstName A dolgozó vezeték neve
+	 */
+	public Worker(String lastName, String firstName) {
+		super();
+		this.lastName = lastName;
+		this.firstName = firstName;
+	}
+	
+	/**
+	 * Az osztály paraméter nélküli konstruktora.
+	 */
+	public Worker() {
+		super();
+		this.lastName = lastName;
+		this.firstName = firstName;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int workerId;

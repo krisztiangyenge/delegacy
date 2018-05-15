@@ -52,8 +52,8 @@ public class DelegacyListController {
 			delegacys.addAll(list);
 		
 			delegacysTable.setItems(delegacys);
-			cars.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("car"));
-			worker.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("worker"));
+			cars.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("carId"));
+			worker.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("workerId"));
 			startAddress.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("startAddress"));
 			endAddress.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("endAddress"));
 			distance.setCellValueFactory(new PropertyValueFactory<Delegacy, String>("distance"));

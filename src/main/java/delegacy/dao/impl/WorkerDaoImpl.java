@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import delegacy.dao.WorkerDao;
 import delegacy.datasource.ConnectionHandler;
+import delegacy.model.Car;
 import delegacy.model.Worker;
 
 /**
@@ -72,6 +73,23 @@ public class WorkerDaoImpl implements WorkerDao {
 		}finally{
 			em.close();
 		}
+	}
+	
+	/* (non-Javadoc)
+	 * @see storage.dao.ProductDao#get(int)
+	 */
+	@Override
+	public Worker get(int id) {
+		EntityManager em = emf.createEntityManager();
+		Worker worker = null;
+		try{
+			worker = em.find(Worker.class, id);
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}finally{
+			em.close();
+		}
+		return worker;
 	}
 	
 	/* (non-Javadoc)
