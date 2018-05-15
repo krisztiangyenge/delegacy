@@ -44,6 +44,24 @@ public class Worker {
 	
 	private String firstName;
 	
+	private Double traveled;
+	
+	/**
+	 * A megtett utat visszaadó metódus.
+	 * @return A megtett út
+	 */
+	public Double getTraveled() {
+		return traveled;
+	}
+	
+	 /**
+	  * A megtett utat beállító metódus.
+	  * @param traveled A megtett út
+	  */
+	public void setTraveled(double traveled) {
+		this.traveled = traveled;
+	}
+	
 	/**
 	 * A dolgozó id-ját visszaadó metódus.
 	 * @return A dolgozó id-ja

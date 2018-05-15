@@ -32,6 +32,9 @@ public class WorkerListController {
 	@FXML
 	private TableColumn<Worker, String> lastName;
 	
+	@FXML
+	private TableColumn<Worker, Double> traveled;
+	
 	
 	@FXML
 	private void initialize(){
@@ -44,6 +47,7 @@ public class WorkerListController {
 			
 			firstName.setCellValueFactory(new PropertyValueFactory<Worker, String>("firstName"));
 			lastName.setCellValueFactory(new PropertyValueFactory<Worker, String>("lastName"));
+			traveled.setCellValueFactory(new PropertyValueFactory<Worker, Double>("traveled"));
 			
 			workersTable.getSelectionModel().selectedItemProperty().addListener((o, oldvalue, newvalue) -> modify(newvalue));
 		}

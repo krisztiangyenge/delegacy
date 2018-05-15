@@ -4,6 +4,7 @@ import java.util.List;
 
 import delegacy.model.Car;
 import delegacy.model.Delegacy;
+import delegacy.model.Worker;
 
 /**
  * A kiküldetéseket DAO interfész.

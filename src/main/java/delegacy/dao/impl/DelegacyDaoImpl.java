@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,7 @@ import delegacy.dao.DelegacyDao;
 import delegacy.datasource.ConnectionHandler;
 import delegacy.model.Car;
 import delegacy.model.Delegacy;
+import delegacy.model.Worker;
 
 /**
  * A DelegacyDao interfészt implementáló osztály.

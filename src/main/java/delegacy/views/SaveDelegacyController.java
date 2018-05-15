@@ -108,8 +108,23 @@ public class SaveDelegacyController {
 			if(fuelPriceField.getText() != null && !fuelPriceField.getText().isEmpty()) {
 				delegacy.setFuelPrice(Double.valueOf(fuelPriceField.getText()));
 			}
-			if(Double.valueOf(distanceField.getText()) > 0 && !distanceField.getText().isEmpty() && Double.valueOf(fuelPriceField.getText()) > 0 && !fuelPriceField.getText().isEmpty() && carSelect.getValue().getConsumption()> 0) {
-				delegacy.setPay(delegacyService.getPay(Double.valueOf(distanceField.getText()), carSelect.getValue().getConsumption(), Double.valueOf(fuelPriceField.getText())));
+			if(Double.valueOf(distanceField.getText()) > 0 
+					&& !distanceField.getText().isEmpty() 
+					&& Double.valueOf(fuelPriceField.getText()) > 0 
+					&& !fuelPriceField.getText().isEmpty() 
+					&& carSelect.getValue().getConsumption()> 0
+					&& workers.size() > 0 
+					&& workerSelect.getItems().size()> 0) 
+			{
+				
+				this.updateWorkerTraveled();
+				
+				if(workerSelect.getValue().getTraveled() != null && workerSelect.getValue().getTraveled() > 1000.0) {
+					delegacy.setPay(delegacyService.getActionPay(Double.valueOf(distanceField.getText()), carSelect.getValue().getConsumption(), Double.valueOf(fuelPriceField.getText())));
+				}else {
+					delegacy.setPay(delegacyService.getPay(Double.valueOf(distanceField.getText()), carSelect.getValue().getConsumption(), Double.valueOf(fuelPriceField.getText())));
+				}
+				
 			}
 			
 			if(delegacy.getDelegacyId() == 0) {
@@ -147,5 +162,20 @@ public class SaveDelegacyController {
 			distanceField.setText(String.valueOf(this.delegacy.getDistance()));
 			fuelPriceField.setText(String.valueOf(this.delegacy.getFuelPrice()));
 		}
+	}
+	
+	/**
+	 * Frissíti a dolgozó által megtett összkilómétert.
+	 */
+	public void updateWorkerTraveled() {
+
+		workerSelect.getValue().setFirstName(workerSelect.getValue().getFirstName());
+		workerSelect.getValue().setLastName(workerSelect.getValue().getLastName());
+		if(workerSelect.getValue().getTraveled() != null) {
+			workerSelect.getValue().setTraveled(workerSelect.getValue().getTraveled() + Double.valueOf(distanceField.getText()));
+		}else {
+			workerSelect.getValue().setTraveled(Double.valueOf(distanceField.getText()));
+		}
+		workerService.update(workerSelect.getValue());
 	}
 }

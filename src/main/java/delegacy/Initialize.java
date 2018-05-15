@@ -31,6 +31,7 @@ public class Initialize {
 		try {
 			worker.setFirstName("John");
 			worker.setLastName("Snow");
+			worker.setTraveled(500);
 			
 			WorkerServiceImpl ws = new WorkerServiceImpl();
 			

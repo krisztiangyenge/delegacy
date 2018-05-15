@@ -46,6 +46,16 @@ public interface DelegacyService {
 	 * @return A kiküldetések listája
 	 */
 	List<Delegacy> getAllDelegacy();
+	
+	/**
+	  * A kifizetendő összeget kiszámoló metódus, ami hozzáad egy 9Ft/km amortizációs költséget a benzinköltséghez.
+	  * @param distance Az út távolsága
+	  * @param consumption Az autó fogyasztása
+	  * @param FuelPrice Az üzemanyag ára
+	  * @return A kifizetendő összeg
+	  */
+	Double getActionPay(Double distance, Double consumption, Double FuelPrice);
+	
 	 /**
 	  * A kifizetendő összeget kiszámoló metódus.
 	  * @param distance Az út távolsága
@@ -53,8 +63,8 @@ public interface DelegacyService {
 	  * @param FuelPrice Az üzemanyag ára
 	  * @return A kifizetendő összeg
 	  */
-	
 	Double getPay(Double distance, Double consumption, Double FuelPrice);
+	
 	/**
 	 * A validálást végző metódus.
 	 * @param delegacy a validálandó objektum
@@ -62,6 +72,7 @@ public interface DelegacyService {
 	 * @throws IllegalArgumentException Ha nem valid az objektum, kivételt dob
 	 */
 	boolean validate(Delegacy delegacy) throws IllegalArgumentException;
+	
 	 /**
 	  * 
 	  * @param distance A távolság

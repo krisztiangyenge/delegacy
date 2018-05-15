@@ -3,7 +3,9 @@ package delegacy.service.impl;
 import java.util.List;
 
 import delegacy.dao.impl.DelegacyDaoImpl;
+import delegacy.model.Car;
 import delegacy.model.Delegacy;
+import delegacy.model.Worker;
 import delegacy.service.DelegacyService;
 
 /**
@@ -58,6 +60,7 @@ public class DelegacyServiceImpl implements DelegacyService {
 		return delegacyDao.getAllDelegacy();
 	}
 	
+	
 	/* (non-Javadoc)
 	 * @see delegacy.service.DelegacyrService#getPay(delegacy.model.Delegacy)
 	 */
@@ -65,6 +68,20 @@ public class DelegacyServiceImpl implements DelegacyService {
 	public Double getPay(Double distance, Double consumption, Double FuelPrice) {
 		if(this.validatePay(distance, consumption, FuelPrice)) {
 			double pay = (distance/100) * consumption * FuelPrice;
+			
+			return pay;
+		}
+		
+		return null;
+	}
+	
+	/* (non-Javadoc)
+	 * @see delegacy.service.DelegacyrService#getActionPay(delegacy.model.Delegacy)
+	 */
+	@Override
+	public Double getActionPay(Double distance, Double consumption, Double FuelPrice) {
+		if(this.validatePay(distance, consumption, FuelPrice)) {
+			double pay = ((distance/100) * consumption * FuelPrice) + distance * 9;
 			
 			return pay;
 		}
@@ -105,7 +122,7 @@ public class DelegacyServiceImpl implements DelegacyService {
 	}
 	
 	/* (non-Javadoc)
-	 * @see delegacy.service.DelegacyService#validate(delegacy.model.Delegacy)
+	 * @see delegacy.service.DelegacyService#validatePay(delegacy.model.Delegacy)
 	 */
 	@Override
 	public boolean validatePay(Double distance, Double consumption, Double FuelPrice) {
