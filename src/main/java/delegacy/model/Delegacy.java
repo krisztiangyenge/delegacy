@@ -85,7 +85,7 @@ public class Delegacy {
 	 * @return Az kifizetendő összeg
 	 */
 	public Double getPay() {
-		return pay;
+		return (double) Math.round(pay);
 	}
 	
 	/**
